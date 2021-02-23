@@ -14,20 +14,20 @@ Web.Api availiable end points:
 ------------------------------
 
 1. Authorization endpoint:
-  a. Call method: POST
-  b. Sample URL: https://localhost:5001/CardLimit/authorize
-Sample Body message(JSON):
-{
-  "CardNumber" : "some card number here",
-  "TransactionType" : 1,
-  "TransAmount" : 1300.00
-}
-At "TransactionType" set 1 for for CardPresent and 2 for eCommerce
+   Call method: POST
+   Sample URL: https://localhost:5001/CardLimit/authorize
+   Sample Body message(JSON):
+   {
+     "CardNumber" : "some card number here",
+     "TransactionType" : 1,
+     "TransAmount" : 1300.00
+   }
+   At "TransactionType" set 1 for for CardPresent and 2 for eCommerce
 
 2. Card Limit daily aggregation amount:
-Call method: GET
-Sample URL: https://localhost:5001/CardLimit/some_card_number_here
+   Call method: GET
+   Sample URL: https://localhost:5001/CardLimit/some_card_number_here
 
 3. Health check end point:
-Call method: GET
-Sample URL: https://localhost:5001/home
+   Call method: GET
+   Sample URL: https://localhost:5001/home
