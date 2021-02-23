@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TinyCardLimits.Core\TinyCardLimits.Core.csproj" />
+    <ProjectReference Include="..\..\src\TinyCardLimits.Core\TinyCardLimits.Core.csproj" />
   </ItemGroup>
 
 </Project>
