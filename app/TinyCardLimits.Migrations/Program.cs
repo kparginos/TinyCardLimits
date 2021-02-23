@@ -1,4 +1,12 @@
 ﻿using System;
+using System.Reflection;
+
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+
+using TinyCardLimits.Core.Data;
+using TinyCardLimits.Core.Config.Extentions;
 
 namespace TinyCardLimits.Migrations
 {
@@ -10,24 +18,25 @@ namespace TinyCardLimits.Migrations
         }
     }
 
-    // Use the following to create the migrations
-    //public class DbContextFactory : IDesignTimeDbContextFactory<TinyCardLimitsDBContext>
-    //{
-    //    public TinyCardLimitsDBContext CreateDbContext(string[] args)
-    //    {
-    //        var configuration = new ConfigurationBuilder()
-    //            .SetBasePath($"{AppDomain.CurrentDomain.BaseDirectory}")
-    //            .AddJsonFile("appsettings.json", false)
-    //            .Build();
-    //        var config = configuration.ReadAppConfiguration();
-    //        var optionsBuilder = new DbContextOptionsBuilder<TinyCardLimitsDBContext>();
-    //        optionsBuilder.UseSqlServer(
-    //            config.ConnString,
-    //            options => {
-    //                options.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name); // ("TinyCardLimits");
-    //            });
+    //Use the following to create the migrations
+    public class DbContextFactory : IDesignTimeDbContextFactory<TinyCardLimitsDBContext>
+    {
+        public TinyCardLimitsDBContext CreateDbContext(string[] args)
+        {
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath($"{AppDomain.CurrentDomain.BaseDirectory}")
+                .AddJsonFile("appsettings.json", false)
+                .Build();
+            var config = configuration.ReadAppConfiguration();
+            var optionsBuilder = new DbContextOptionsBuilder<TinyCardLimitsDBContext>();
+            optionsBuilder.UseSqlServer(
+                config.ConnString,
+                options =>
+                {
+                    options.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name); // ("TinyCardLimits");
+                });
 
-    //        return new TinyCardLimitsDBContext(optionsBuilder.Options);
-    //    }
-    //}
+            return new TinyCardLimitsDBContext(optionsBuilder.Options);
+        }
+    }
 }
