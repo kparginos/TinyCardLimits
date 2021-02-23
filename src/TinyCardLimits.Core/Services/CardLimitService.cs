@@ -140,8 +140,15 @@ namespace TinyCardLimits.Core.Services
                     .Where(l => l.TransactionType == options.TransactionType)
                     .SingleOrDefault();
 
-                if (carLimit.AggrAmount + options.TransAmount > MAX_CARDPRESENT && options.TransactionType == TransactionTypes.CardPresent ||
-                   carLimit.AggrAmount + options.TransAmount > MAX_ECOMMERCE && options.TransactionType == TransactionTypes.eCommerce)
+                if (carLimit.AggrAmount + options.TransAmount > MAX_CARDPRESENT && options.TransactionType == TransactionTypes.CardPresent)
+                {
+                    return new Result<List<CardLimit>>()
+                    {
+                        Code = ResultCodes.BadRequest,
+                        Message = $"Maximun card allowance exceeded for Card Number {card.CardNumber} and Transaction Type {options.TransactionType}"
+                    };
+                }
+                if (carLimit.AggrAmount + options.TransAmount > MAX_ECOMMERCE && options.TransactionType == TransactionTypes.eCommerce)
                 {
                     return new Result<List<CardLimit>>()
                     {
