@@ -21,6 +21,10 @@ namespace TinyCardLimits.Core.Data
             modelBuilder.Entity<Card>()
                 .ToTable("Card");
 
+            modelBuilder.Entity<Card>()
+                .HasIndex(c => c.CardNumber)
+                .IsUnique();
+
             modelBuilder.Entity<CardLimit>()
                 .ToTable("Limit");
         }

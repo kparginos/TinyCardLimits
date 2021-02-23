@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TinyCardLimits.Core.Data;
 
 namespace TinyCardLimits.Migrations.Migrations
 {
     [DbContext(typeof(TinyCardLimitsDBContext))]
-    partial class TinyCardLimitsDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210223115309_Add_CardNumber_As_UniqueKey")]
+    partial class Add_CardNumber_As_UniqueKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -97,7 +97,7 @@ namespace TinyCardLimits.Core.Services
                 return new Result<Card>()
                 {
                     Code = ResultCodes.InternalServerError,
-                    Message = $"Failed to save card. Details: {ex.Message}",
+                    Message = $"Failed to save card. Details: {ex.Message} - {((ex.InnerException != null) ? ex.InnerException.Message : "")}",
                 };
             }
 
