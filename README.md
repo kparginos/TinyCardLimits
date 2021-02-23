@@ -14,8 +14,8 @@ Web.Api availiable end points:
 ------------------------------
 
 1. Authorization endpoint:
-Call method: POST
-Sample URL: https://localhost:5001/CardLimit/authorize
+  a. Call method: POST
+  b. Sample URL: https://localhost:5001/CardLimit/authorize
 Sample Body message(JSON):
 {
   "CardNumber" : "some card number here",
