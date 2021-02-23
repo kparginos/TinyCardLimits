@@ -186,12 +186,13 @@ namespace TinyCardLimits.Core.Services
                 };
             }
 
-            if (options.CardNumber.Length != 16)
+            if (cardNumber.Length != 16)
             {
-                return new Result<List<CardLimit>>
+                return new Result<decimal>
                 {
                     Code = ResultCodes.BadRequest,
-                    Message = "Card Number must be 16 digits long !"
+                    Message = "Card Number must be 16 digits long !",
+                    Data = 0.0m
                 };
             }
 
