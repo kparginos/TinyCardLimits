@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Extentions\" />
-    <Folder Include="Services\Interfaces\" />
     <Folder Include="Services\Results\" />
     <Folder Include="Services\Options\" />
   </ItemGroup>
