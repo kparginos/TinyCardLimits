@@ -25,9 +25,9 @@ Sample Body message(JSON):
 At "TransactionType" set 1 for for CardPresent and 2 for eCommerce
 
 2. Card Limit daily aggregation amount:
-    Call method: GET
-    Sample URL: https://localhost:5001/CardLimit/some_card_number_here
+Call method: GET
+Sample URL: https://localhost:5001/CardLimit/some_card_number_here
 
 3. Health check end point:
-    Call method: GET
-    Sample URL: https://localhost:5001/home
+Call method: GET
+Sample URL: https://localhost:5001/home
