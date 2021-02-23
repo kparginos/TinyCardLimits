@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F330DE03-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinyCardLimits.Migrations", "app\TinyCardLimits.Migrations\TinyCardLimits.Migrations.csproj", "{9041121D-592F-45CB-99C4-66850B0F912F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyCardLimits.Core.Test", "test\TinyCardLimits.Core.Test\TinyCardLimits.Core.Test.csproj", "{F42D1D1B-5CC9-4C48-9060-4CD00F4910B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinyCardLimits.Core.Test", "test\TinyCardLimits.Core.Test\TinyCardLimits.Core.Test.csproj", "{F42D1D1B-5CC9-4C48-9060-4CD00F4910B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinyCardLimits.Core", "src\TinyCardLimits.Core\TinyCardLimits.Core.csproj", "{80B46920-F0E0-4B03-922E-788B77B54A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyCardLimits.Api", "app\TinyCardLimits.Api\TinyCardLimits.Api.csproj", "{59998EDE-49CD-4E12-818E-45C6DD3EA4BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{80B46920-F0E0-4B03-922E-788B77B54A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80B46920-F0E0-4B03-922E-788B77B54A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80B46920-F0E0-4B03-922E-788B77B54A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59998EDE-49CD-4E12-818E-45C6DD3EA4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59998EDE-49CD-4E12-818E-45C6DD3EA4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59998EDE-49CD-4E12-818E-45C6DD3EA4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59998EDE-49CD-4E12-818E-45C6DD3EA4BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{9041121D-592F-45CB-99C4-66850B0F912F} = {861E5467-3F3F-4F5B-A134-54BE7A768509}
 		{F42D1D1B-5CC9-4C48-9060-4CD00F4910B8} = {F330DE03-BDB4-4A46-A916-7AA7126DCE06}
 		{80B46920-F0E0-4B03-922E-788B77B54A2F} = {6614CC99-F50B-4F0E-94A2-A1202C2A99A1}
+		{59998EDE-49CD-4E12-818E-45C6DD3EA4BD} = {861E5467-3F3F-4F5B-A134-54BE7A768509}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EEDB375-6E51-41AB-9BD6-3C0BDD983EBA}

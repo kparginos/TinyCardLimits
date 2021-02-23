@@ -72,6 +72,15 @@ namespace TinyCardLimits.Core.Services
                 };
             }
 
+            if (options.CardNumber.Length != 16)
+            {
+                return new Result<Card>()
+                {
+                    Code = ResultCodes.BadRequest,
+                    Message = "Card Number cannot be empty !"
+                };
+            }
+
             var card = new Card()
             {
                 CardNumber = options.CardNumber,

@@ -41,6 +41,15 @@ namespace TinyCardLimits.Core.Services
                 };
             }
 
+            if(options.CardNumber.Length != 16)
+            {
+                return new Result<List<CardLimit>>
+                {
+                    Code = ResultCodes.BadRequest,
+                    Message = "Card Number must be 16 digits long !"
+                };
+            }
+
             // Find the card
             var result = await _card.GetCardbyNumberAsync(options.CardNumber);
             if(result.Code != ResultCodes.Success)
@@ -159,8 +168,54 @@ namespace TinyCardLimits.Core.Services
                 return new Result<List<CardLimit>>()
                 {
                     Code = ResultCodes.Success,
-                    Message = $"Transaction completed. Availiable card balance is {card.AvailableBalance - sumOfLimits + options.TransAmount}",
+                    Message = $"Transaction completed. Availiable card balance is {card.AvailableBalance - (sumOfLimits + options.TransAmount)}",
                     Data = card.Limits
+                };
+            }
+        }
+
+        public async Task<Result<decimal>> GetCardLimitsAsync(string cardNumber)
+        {
+            if(string.IsNullOrWhiteSpace(cardNumber))
+            {
+                return new Result<decimal>
+                {
+                    Code = ResultCodes.BadRequest,
+                    Message = "Card Number cannot be empty !",
+                    Data = 0.0m
+                };
+            }
+
+            if (options.CardNumber.Length != 16)
+            {
+                return new Result<List<CardLimit>>
+                {
+                    Code = ResultCodes.BadRequest,
+                    Message = "Card Number must be 16 digits long !"
+                };
+            }
+
+            var result = await _card.GetCardbyNumberAsync(cardNumber);
+
+            if(result.Code == ResultCodes.Success)
+            {
+                var sum = result.Data.Limits
+                    .Sum(l => l.AggrAmount);
+
+                return new Result<decimal>()
+                {
+                    Code = ResultCodes.Success,
+                    Message = $"Daily aggregate amounts for Card Number {cardNumber}",
+                    Data = (decimal)sum
+                };
+            }
+            else
+            {
+                return new Result<decimal>()
+                {
+                    Code = result.Code,
+                    Message = result.Message,
+                    Data = 0.0m
                 };
             }
         }

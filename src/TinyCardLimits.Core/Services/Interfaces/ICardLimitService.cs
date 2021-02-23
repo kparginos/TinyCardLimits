@@ -10,5 +10,6 @@ namespace TinyCardLimits.Core.Services.Interfaces
     public interface ICardLimitService
     {
         public Task<Result<List<CardLimit>>> RegisterAsync(RegisterCardLimitOptions options);
+        public Task<Result<decimal>> GetCardLimitsAsync(string cardNumber);
     }
 }
